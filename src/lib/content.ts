@@ -3,15 +3,15 @@ import { Building2Icon, PlugIcon, ReceiptTextIcon, ServerIcon, StoreIcon, Wareho
 export const solutions = [
   {
     title: "Desarrollamos",
-    text: "CuadraPOS, CuadraERP y soluciones RFID hechas para la operación real.",
+    text: "Construimos sistemas para vender, administrar y mover inventario.",
   },
   {
     title: "Integramos",
-    text: "SAP Business One, Microsoft 365 y tus sistemas actuales en un solo flujo de información.",
+    text: "Conectamos áreas y herramientas para evitar la doble captura.",
   },
   {
     title: "Gestionamos",
-    text: "Infraestructura, soporte y continuidad para que todo funcione.",
+    text: "Acompañamos el arranque y cuidamos la continuidad diaria.",
   },
 ]
 
@@ -67,11 +67,11 @@ export const customDevelopment = { name: "Desarrollo a la medida", href: "#desar
 export const benefits = [
   {
     title: "Un solo responsable",
-    text: "Si algo falla, no hay proveedores culpándose entre sí: el software, la integración y los servidores son del mismo equipo.",
+    text: "Si algo falla, sabes a quién llamar. No pierdes tiempo coordinando varios proveedores.",
   },
   {
     title: "Menos trabajo manual",
-    text: "La información pasa sola entre ventas, inventario y finanzas, y tu equipo deja de copiarla de un sistema a otro.",
+    text: "Tu equipo trabaja en el sistema, no alrededor de hojas y capturas repetidas.",
   },
   {
     title: "Creces a tu ritmo",
@@ -79,7 +79,7 @@ export const benefits = [
   },
   {
     title: "Decides con datos al día",
-    text: "Ventas, inventario y finanzas leen la misma información, así los reportes reflejan lo que pasa hoy en cada sucursal.",
+    text: "Ves la operación a tiempo para corregir antes de que el problema crezca.",
   },
 ]
 
@@ -108,15 +108,15 @@ export const operatingContext = [
 export const steps = [
   {
     title: "Diagnóstico gratuito",
-    text: "Conversamos sobre cómo opera tu empresa hoy, qué sistemas usas y qué quieres resolver. Sin costo y sin compromiso.",
+    text: "Nos cuentas el flujo actual, los sistemas involucrados y el punto que quieres resolver.",
   },
   {
     title: "Propuesta e implementación",
-    text: "Te proponemos la combinación justa de productos, integraciones e infraestructura. La configuramos, la conectamos con lo que ya usas y la ponemos en marcha.",
+    text: "Definimos la solución, la configuramos, la conectamos con lo que ya usas y la ponemos en marcha.",
   },
   {
     title: "Soporte continuo",
-    text: "Monitoreamos, respaldamos y mantenemos tus sistemas para que tu operación no se detenga.",
+    text: "Después del arranque seguimos pendientes de disponibilidad, respaldos y ajustes operativos.",
   },
 ]
 
@@ -124,22 +124,22 @@ export const faqs = [
   {
     question: "¿El diagnóstico tiene algún costo?",
     answer:
-      "No. El diagnóstico es gratuito y sin compromiso. Escríbenos por WhatsApp, revisamos cómo opera tu empresa y te decimos qué solución tiene sentido para ti.",
+      "No. Es gratuito y sin compromiso. Sirve para entender tu operación antes de proponer una solución.",
   },
   {
     question: "¿Tengo que contratar los tres productos?",
     answer:
-      "No. Puedes usar solo CuadraPOS, solo CuadraERP, solo el WMS o combinarlos. Comparten datos desde el primer día, así que puedes empezar con uno y sumar los demás cuando lo necesites.",
+      "No. Puedes empezar con el frente que más presión tenga y sumar otros módulos cuando el negocio lo pida.",
   },
   {
     question: "¿Puedo emitir facturación electrónica?",
     answer:
-      "Sí. La facturación electrónica se emite desde CuadraPOS y CuadraERP, y también la implementamos y conectamos con los sistemas que ya usas.",
+      "Sí. La implementamos dentro del flujo de venta o administración que corresponda a tu operación.",
   },
   {
     question: "Ya uso SAP Business One o Microsoft 365. ¿Debo dejarlos?",
     answer:
-      "No. Integramos nuestros productos con SAP Business One, Microsoft 365, Zoho CRM y otras herramientas mediante APIs, Webhooks y OData, para que la información fluya entre ellos sin reemplazar lo que ya funciona.",
+      "No. Si una herramienta ya funciona, la conectamos al flujo nuevo en lugar de reemplazarla.",
   },
   {
     question: "¿Sirve para empresas con varias sucursales?",
@@ -149,16 +149,16 @@ export const faqs = [
   {
     question: "¿Dónde se guarda la información de mi empresa?",
     answer:
-      "Donde mejor te convenga: en la nube (AWS o Azure) o en tus propios servidores. En ambos casos nos encargamos del monitoreo y los respaldos.",
+      "Depende de tus requisitos. Puede ser nube o servidores propios; lo definimos en la propuesta técnica.",
   },
   {
     question: "¿Desarrollan software a la medida?",
     answer:
-      "Sí. Cuando un producto estándar no alcanza, desarrollamos aplicaciones web, móviles y sistemas empresariales a la medida, y modernizamos sistemas existentes.",
+      "Sí. Lo hacemos cuando el proceso tiene reglas propias que un producto estándar no cubre bien.",
   },
   {
     question: "¿Qué pasa después de la implementación?",
     answer:
-      "Seguimos contigo. Ofrecemos mantenimiento, soporte, monitoreo 24/7 y respaldos para que tus sistemas estén disponibles de forma continua.",
+      "Seguimos disponibles para soporte, ajustes y continuidad operativa después del arranque.",
   },
 ]

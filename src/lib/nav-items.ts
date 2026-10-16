@@ -27,9 +27,8 @@ export const navItems: NavItem[] = [
     })),
   },
   { label: "Beneficios", href: "#beneficios" },
-  { label: "Experiencia", href: "#experiencia" },
-  { label: "Cómo empezar", href: "#como-empezar" },
-  { label: "Preguntas", href: "#preguntas" },
+  { label: "Proyectos", href: "#proyectos" },
+  { label: "Contacto", href: "#contacto" },
 ]
 
 export function isNavLinkActive(href: string, pathname: string) {
