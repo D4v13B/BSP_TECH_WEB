@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import { CheckIcon } from "lucide-react"
+import { ArrowRightIcon, CheckIcon } from "lucide-react"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CTAButton } from "@/components/site/cta-button"
 import type { CtaLocation } from "@/lib/ctas"
+import { operatingContext } from "@/lib/content"
 
 const products = [
   {
@@ -83,17 +84,17 @@ export function Products() {
       {products.map((product) => (
         <span key={product.id} id={`producto-${product.id}`} className="absolute top-0" aria-hidden />
       ))}
-      <div className="mx-auto w-full max-w-[1200px] px-4 py-24 sm:px-6 md:py-28">
-        <div className="flex max-w-3xl flex-col gap-5">
-          <h2 className="text-heading-sm font-normal md:text-heading-lg">
-            Software propio para vender, administrar y mover inventario
-          </h2>
+      <div className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 sm:py-10 md:py-12 lg:px-8 lg:py-14 xl:px-10">
+        <div className="flex flex-col gap-5">
+          <h3 className="text-subheading font-normal">
+            Sistemas para cada frente de la operación
+          </h3>
           <p className="text-body-lg text-muted-foreground">
-            Tres productos que comparten datos desde el primer día. Usa uno o los tres.
+            Cada sistema cubre tareas concretas de su área, desde la caja hasta la gerencia.
           </p>
         </div>
 
-        <Tabs value={tab} onValueChange={(value) => setTab(String(value))} className="mt-12 gap-6">
+        <Tabs value={tab} onValueChange={(value) => setTab(String(value))} className="mt-6 gap-5 sm:mt-8 sm:gap-6">
           <TabsList className="h-auto w-full flex-wrap justify-start gap-1 bg-transparent p-0 sm:w-fit sm:rounded-[10px] sm:bg-secondary sm:p-1">
             {products.map((product) => (
               <TabsTrigger key={product.id} value={product.id} className="h-10 flex-none rounded-[8px] px-4 text-base font-normal">
@@ -137,6 +138,34 @@ export function Products() {
             </TabsContent>
           ))}
         </Tabs>
+
+        <div className="mt-8 sm:mt-10">
+          <h3 className="text-subheading font-normal">Dónde opera</h3>
+          <div className="mt-6 grid gap-x-8 gap-y-6 sm:mt-8 md:grid-cols-3 md:gap-y-8">
+            {operatingContext.map((context) => (
+              <div key={context.place} className="flex flex-col gap-5 border-t pt-5">
+                <div className="flex flex-col gap-1">
+                  <h4 className="text-title font-normal">{context.place}</h4>
+                  <a
+                    href={context.href}
+                    className="group inline-flex w-fit items-center gap-2 text-muted-foreground hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+                  >
+                    {context.product}
+                    <ArrowRightIcon
+                      className="size-4 text-brand transition-transform duration-300 ease-out group-hover:translate-x-1"
+                      aria-hidden
+                    />
+                  </a>
+                </div>
+                <ul className="flex flex-col gap-3">
+                  {context.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

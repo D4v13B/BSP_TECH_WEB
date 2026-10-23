@@ -93,9 +93,9 @@ rounded:
   segmented: "10px"
   card: "12px"
 spacing:
-  container: "1200px"
-  gutter: "16px / 24px (sm)"
-  section: "96px / 112-128px (md)"
+  container: "1440px"
+  gutter: "16px / 24px (sm) / 32-40px (lg-xl)"
+  section: "56px / 64px (sm) / 96px (md) / 112px (lg)"
   tile-gap: "12px"
   heading-stack: "20px"
   content-offset: "48px"
@@ -264,7 +264,7 @@ Pillar colors are assigned by role, all derived from navy and blue:
 **Body Font:** Geist
 **Label/Mono Font:** Geist Mono is loaded for data and codes; the build does not use it yet, so no mono role is recorded.
 
-**Character:** One grotesk, set light and tight at large sizes, so headlines read calm and precise. The only heavy moment is the footer poster.
+**Character:** One grotesk, set light and tight at large sizes, so headlines read calm and precise. The only heavy moment is the footer poster. The root font size scales from 16px on mobile to 20px on wide desktop so navigation, cards and footer links read larger and closer on large displays.
 
 ### Hierarchy
 - **Poster** (900, uppercase, 2.75rem / 4.25rem (sm) / 5.25rem (md), 0.85, -0.03em): the two-line footer closer; line two in blue-on-dark. Nowhere else.
@@ -284,13 +284,13 @@ Pillar colors are assigned by role, all derived from navy and blue:
 
 ## Layout
 
-A centered 1200px container with 16px gutters (24px from sm). Sections stack 96px of vertical padding, 112-128px from md; each opens with a heading block (max ~48rem, 20px heading-to-lede) and places content 48px below.
+A centered 1440px container with 16px gutters, 24px from sm and 32-40px from lg-xl. Standard sections use symmetric vertical padding: 56px on mobile, 64px from sm, 96px from md and 112px from lg; each opens with a heading block and places content 32-48px below depending on viewport.
 
-The page reads as five groups. Inicio: the hero, then "Qué hacemos" (its heading beside a problem line in ink and a muted paragraph from xl, with a three-column ruled row below). Servicios: the six pillar tiles as the single service index, then productos, integraciones, infraestructura and desarrollo. Beneficios: the heading block sticky on lg (4 columns) beside four ruled rows in two columns. Experiencia: a navy band of three operating-context columns. Contacto: Cómo empezar, Preguntas, the contact band and the footer. Grounds run paper, wash (productos), navy (integraciones), paper, wash (desarrollo), paper, navy (experiencia), paper, wash (preguntas), navy (contacto), navy-deep.
+The page reads as five groups. Inicio: the hero states what BSP does and the problem it solves, followed by the ecosystem image and the three ruled actions (Desarrollamos, Integramos, Gestionamos). Servicios: the six pillar tiles as the single service index, a compact navy integration panel, productos with the operating-context rows, infraestructura and desarrollo. Beneficios: the heading block sticky on lg (4 columns) beside four ruled rows in two columns. Proyectos: a short navy band reserved for future case studies, intentionally empty of invented logos, figures or testimonials. Contacto: Cómo empezar, Preguntas, the diagnostic form band and the footer. Grounds run wash-to-paper hero, paper (servicios), wash (productos), paper (infraestructura), wash (desarrollo), paper (beneficios), navy (proyectos), paper (contacto), wash (preguntas), navy (diagnóstico), navy-deep.
 
-Content is a 12px-gutter bento on a 12-column grid: photographs take 7 columns and their pillar tile or panel 5; the six pillar tiles run 3 across at lg, 2 at sm, 1 on mobile; service groups and steps are 3 equal cards from md. Ruled rows use a wider 32px column gap. Everything stacks below lg, image first.
+Content is a 12px-gutter bento on a 12-column grid: photographs take 7 columns and their pillar tile or panel 5; the six pillar tiles run 3 across at lg, 2 at sm, 1 on mobile; service groups and steps are 3 equal cards from md. Ruled rows use a wider 32px column gap. Everything stacks below lg, image first. The wider desktop container keeps the nav, content and footer from feeling distant on large screens.
 
-The hero is centered (headline, lede, then the two CTAs side by side from sm, stacked on mobile) over a radial wash from top right (#3A7DFF through #D6E4FF and wash to white), with the full-container ecosystem image 64-80px below and the hero's bottom quarter masked to paper so the image straddles wash and white. The header is fixed and transparent at the top, frosting to 80% paper with a heavy blur and hairline inset after 8px of scroll; `scroll-padding-top: 5rem` keeps anchors clear. Nav moves into a right sheet below lg; the header CTA hides below sm. A 56px WhatsApp button floats bottom-right (16px inset, 24px from sm) on every viewport.
+The hero is centered (headline and lede, without CTA buttons) over a radial wash from top right (#3A7DFF through #D6E4FF and wash to white), with the full-container ecosystem image 32-80px below depending on viewport and the hero's bottom quarter masked to paper so the image straddles wash and white. The header is fixed and transparent at the top, frosting to 80% paper with a heavy blur and hairline inset after 8px of scroll; `scroll-padding-top: 5rem` keeps anchors clear. Nav moves into a right sheet below lg; the header CTA hides below sm. A 56px WhatsApp button floats bottom-right (16px inset, 24px from sm) on every viewport.
 
 ## Elevation & Depth
 
@@ -314,14 +314,14 @@ Two working corner sizes: 8px for buttons, tab triggers, menu rows and icon chip
 Rectangular, light-weight labels, logo blue.
 - **Shape:** 8px corners, 1px transparent border, label weight 400 at 1rem in `xl`.
 - **Icons:** an action that opens WhatsApp carries a leading WhatsApp glyph; an in-page link carries a trailing arrow (arrow-down for "Conoce nuestras soluciones").
-- **Primary:** logo-blue fill, white label; `xl` (48px) for the hero, product panels, Cómo empezar, form submit and mobile menu; `lg` (36px, weight 400, 0.875rem) in the header.
+- **Primary:** logo-blue fill, white label; `xl` (48px) for product panels, form submit and mobile menu; `lg` in the header.
 - **Hover / Focus:** hover deepens to logo-blue-strong; focus-visible shows a blue border and 3px 50% blue ring; pressing nudges down 1px.
-- **Outline:** paper fill, 1px hairline border, navy label, wash on hover; the hero's "Conoce nuestras soluciones" (paper at 90% over the wash) and "Preguntar por WhatsApp" in Preguntas.
+- **Outline:** paper fill, 1px hairline border, navy label, wash on hover.
 - **Inverse:** the outline action on the navy-deep footer with its border made transparent: white fill, navy label, wash on hover.
 - **Ghost:** no fill, weight 400, wash fill on hover; header nav links and the Servicios trigger, which keeps the wash while its dropdown is open. The active link turns logo blue.
 
 ### CTA Button (single source)
-Every call to action is an entry in one config with three actions: "demo" (primary, opens WhatsApp; labeled "Solicita una asesoría gratuita" in the hero, header and mobile menu and "Agenda una demo de …" in the product panels), "pregunta" (outline, "Preguntar por WhatsApp") and "soluciones" (outline link to #servicios). `<CTAButton>` renders it at `xl` by default; a placement may change size, label wording or the WhatsApp prefill, never the verb. WhatsApp actions open in a new tab with an aria-label that says so, and every anchor carries `data-cta-id` and `data-cta-location`. The mobile-menu CTA and the floating button resolve the same config.
+Every call to action is an entry in one config with three actions: "demo" (primary, opens WhatsApp; labeled "Solicita una asesoría gratuita" in the header and mobile menu and "Agenda una demo de …" in the product panels), "pregunta" (outline, "Preguntar por WhatsApp") and "soluciones" (outline link to #servicios, configured but not shown in the current hero). `<CTAButton>` renders it at `xl` by default; a placement may change size, label wording or the WhatsApp prefill, never the verb. WhatsApp actions open in a new tab with an aria-label that says so, and every anchor carries `data-cta-id` and `data-cta-location`. The mobile-menu CTA and the floating button resolve the same config.
 
 **The One Source Rule.** A new CTA is a new entry or location in the config, rendered through `<CTAButton>`; no hand-built action links.
 
@@ -340,34 +340,34 @@ Six tiles at 12px corners, 20px padding, at least 192px tall from sm, 3 across a
 - **Error / Disabled:** destructive border with 20% destructive ring and message below; disabled at 50%.
 
 ### Contact Form to WhatsApp
-The white form panel on the navy contact band. The `xl` primary submit, "Enviar por WhatsApp" with a leading glyph, composes the message and opens WhatsApp; the helper line beneath the submit says so. Its success state replaces the form with a WhatsApp-green glyph, a title-size weight-400 heading and follow-up actions.
+The white form panel on the navy contact band. The `xl` primary submit, "Enviar por WhatsApp" with a leading glyph, composes the message and opens WhatsApp. Its success state replaces the form with a WhatsApp-green glyph, a title-size weight-400 heading and follow-up actions.
 
 ### Product Selector
 Segmented control: blue-mist track (10px corners, 4px padding) with 40px triggers (8px corners, weight 400); the active trigger turns paper. On mobile the track drops away and triggers wrap. Below, a 7/5 bento: navy-backed photograph beside the product's pillar-tint panel with subheading, navy-75% summary, check list and an `xl` primary demo CTA with the WhatsApp glyph. Changing tabs fades the panel in and slides it up 8px over 500ms.
 
 ### Navigation
-Fixed 64px header: official logo mark (28px) left; from lg a Base UI navigation menu ("Servicios" with a chevron, then Beneficios, Experiencia, Cómo empezar and Preguntas as ghost links); one blue `lg` CTA, "Solicita una asesoría gratuita" with the WhatsApp glyph, right. Transparent over the hero wash, frosted after scroll.
+Fixed header: 64px on mobile and 72px from sm. Official logo mark (28px) left; from lg a Base UI navigation menu ("Servicios" with a chevron, then Beneficios, Proyectos and Contacto as ghost links); one blue `lg` CTA, "Solicita una asesoría gratuita" with the WhatsApp glyph, right. Transparent over the hero wash, frosted after scroll.
 
 The Servicios dropdown is a paper panel at 12px corners with 8px padding: the six services in two columns, each an 8px-cornered row with a 36px blue-mist icon chip (logo-blue icon), a 1rem label and a muted 0.875rem description; below a hairline, a logo-blue "Ver todos los servicios" row with a trailing arrow. It scales in from 90% over 350ms on `cubic-bezier(0.22, 1, 0.36, 1)`.
 
 Below lg, a right sheet: 1.125rem links in 8px-cornered rows (wash on hover, logo blue when current), Servicios as an accordion that opens the same services with 32px icon chips and the "Ver todos" row, then the `xl` CTA. Rows enter staggered, fading and sliding 16px in from the right over 300ms, 40ms apart; no motion under `prefers-reduced-motion`.
 
 ### Navy Band
-Full-bleed ink-navy section: weight-400 headline, navy-muted lede, rule-blue arrow markers, a borderless 12px-cornered photograph, and an index of columns opened by navy-border top rules. The contact band adds phone and email links (white) beside navy-muted icons, and the form; it has no button of its own.
+Full-bleed ink-navy sections are reserved for Proyectos and Diagnóstico. The compact Integraciones panel inside Servicios also uses navy, but it is not a full page band. The contact band adds WhatsApp and email links (white) beside navy-muted icons, and the form; it has no extra helper line beneath the submit button.
 
 ### Ruled Rows
 Short parallel points (the three Qué hacemos verbs, the four benefits) sit under a 1px hairline top rule with 20px above the title: a title-size weight-400 heading and a muted paragraph. No fill, no corners, no icon, no shadow. Three across from md in Qué hacemos; two across from sm in Beneficios, beside a heading block that sticks 112px from the top on lg.
 
 **The Rule-Not-Card Rule.** When points are parallel and short, a top rule separates them; a filled card is reserved for content that holds a list or an action.
 
-### Operating-Context Band
-The experiencia navy band: headline and navy-muted lede, then three columns from md (32px apart) each opened by a navy-border top rule. Each column has a title-size place ("En la tienda", "En el almacén", "En la oficina"), a navy-muted link to its product with a rule-blue 16px arrow (the link turns white and the arrow slides 4px on hover), and a plain white list of the hardware or work it covers, without markers.
+### Operating-Context Rows
+Inside the productos section, "Dónde opera" adds three columns from md (32px apart) each opened by a top rule. Each column has a title-size place ("En la tienda", "En el almacén", "En la oficina"), a muted link to its product with a logo-blue 16px arrow (the link turns ink-navy and the arrow slides 4px on hover), and a plain list of the hardware or work it covers, without markers.
 
 ### Floating WhatsApp Button
 A 56px circle in WhatsApp green with a 28px white glyph, fixed bottom-right with the feature shadow; it is the "pregunta" action from the CTA config, deepens to WhatsApp-strong on hover and shows the blue focus ring.
 
 ### Footer Poster
-Navy-deep footer: a centered two-line uppercase poster (line two in blue-on-dark) with the inverse `xl` "Preguntar por WhatsApp" (leading glyph), then a navy-border rule, the white logo lockup (112px tall) across 4 columns, and three link lists, Servicios and BSP at 2 columns each and Contacto at 4 (navy-muted titles, white 0.875rem links that underline on hover), and the legal line.
+Navy-deep footer: a centered two-line uppercase poster (line two in blue-on-dark) that scales from heading-sm on mobile to display on lg, then a navy-border rule, the white logo lockup across 4 columns, and three link lists, Servicios and BSP at 2 columns each and Contacto at 4 (navy-muted titles, white 0.875rem links that underline on hover), and the legal line. Footer padding is compact on mobile and opens up only on wider screens.
 
 ### Hero Reveal (motion)
 The hero image plays once on load: from an inset 12px-rounded clip, 32px lower and at 40% opacity to full, over 1.1s on `cubic-bezier(0.16, 1, 0.3, 1)`. Disabled under `prefers-reduced-motion`.

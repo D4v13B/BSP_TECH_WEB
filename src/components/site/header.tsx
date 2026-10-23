@@ -37,7 +37,7 @@ function NavAnchor({ href, ...props }: ComponentProps<"a"> & { href: string }) {
 
 const desktopLink = cn(
   buttonVariants({ variant: "ghost", size: "lg" }),
-  "font-normal data-active:text-primary"
+  "text-base font-normal data-active:text-primary xl:text-[1.05rem]"
 )
 
 function SubmenuLink({ link, active }: { link: NavLink; active: boolean }) {
@@ -84,7 +84,7 @@ export function Header() {
         scrolled && "bg-background/80 shadow-hairline backdrop-blur-xl"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-6 px-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-6 lg:gap-8 lg:px-8 xl:px-10">
         <Link href="/" aria-label="BSP Tech Solutions, inicio" className="shrink-0">
           <Logo />
         </Link>
@@ -109,7 +109,7 @@ export function Header() {
                       closeOnClick
                       active={isActive(item.href)}
                       render={<NavAnchor href={item.href} />}
-                      className="mt-1 justify-between rounded-[8px] border-t px-3 py-3 text-sm text-primary"
+                      className="mt-1 justify-between rounded-[8px] border-t px-3 py-3 text-base text-primary"
                     >
                       Ver todos los {item.label.toLowerCase()}
                       <ArrowRightIcon aria-hidden />
@@ -132,7 +132,12 @@ export function Header() {
         </NavigationMenu>
 
         <div className="flex items-center gap-1">
-          <CTAButton action="demo" location="navbar" size="lg" className="hidden px-4 font-normal sm:inline-flex" />
+          <CTAButton
+            action="demo"
+            location="navbar"
+            size="lg"
+            className="hidden h-11 px-5 text-base font-normal sm:inline-flex xl:h-12 xl:text-[1.05rem]"
+          />
           <Sheet>
             <SheetTrigger
               render={<Button variant="ghost" size="icon-lg" className="lg:hidden" aria-label="Abrir menú" />}

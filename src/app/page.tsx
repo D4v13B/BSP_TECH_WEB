@@ -1,29 +1,20 @@
 import Image from "next/image"
-import { ArrowRightIcon, CloudIcon, ContainerIcon, MailIcon, PhoneIcon, ShieldCheckIcon } from "lucide-react"
+import { ArrowRightIcon, CloudIcon, ContainerIcon, MailIcon, MessageCircleIcon, ShieldCheckIcon } from "lucide-react"
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { ContactForm } from "@/components/site/contact-form"
-import { CTAButton } from "@/components/site/cta-button"
 import { Header } from "@/components/site/header"
 import { LogoLockup } from "@/components/site/logo"
 import { Products } from "@/components/site/products"
 import { WhatsAppButton } from "@/components/site/whatsapp-button"
 import { contact } from "@/lib/contact"
-import { benefits, customDevelopment, faqs, operatingContext, services, solutions, steps } from "@/lib/content"
+import { benefits, customDevelopment, faqs, services, solutions, steps } from "@/lib/content"
 import { siteDescription, siteName, siteUrl } from "@/lib/site"
 
-const integrationGroups = [
+const integrations = [
   { name: "ERP y CRM", items: ["SAP Business One", "Zoho CRM", "CuadraERP"] },
-  { name: "Productividad", items: ["Microsoft 365", "Outlook", "Teams", "SharePoint"] },
-  { name: "Nube", items: ["AWS", "Azure"] },
-  { name: "Bases de datos", items: ["PostgreSQL", "MySQL"] },
-  { name: "Conectores", items: ["REST API", "Webhooks", "OData", "Tus sistemas actuales"] },
-]
-
-const integrationOutcomes = [
-  "Una venta en tienda descuenta el inventario del ERP",
-  "Los clientes del CRM llegan al punto de venta",
-  "Un solo dato para ventas, inventario y finanzas",
+  { name: "Microsoft 365", items: ["Outlook", "Teams", "SharePoint"] },
+  { name: "Conectores", items: ["REST API", "Webhooks", "OData"] },
 ]
 
 const infrastructure = [
@@ -42,9 +33,8 @@ const serviceGroups: { name: string; items: { title: string; text: string; id?: 
     ],
   },
   {
-    name: "Integración",
+    name: "Arquitectura y cumplimiento",
     items: [
-      { title: "Integración de sistemas", text: "SAP, Microsoft 365, APIs y servicios de terceros." },
       { id: "facturacion", title: "Facturación electrónica", text: "Implementación y conexión de la facturación electrónica con tus sistemas." },
       { title: "Arquitectura de soluciones", text: "Sistemas diseñados para crecer contigo." },
     ],
@@ -67,18 +57,18 @@ const footerColumns = [
   {
     name: "BSP",
     links: [
-      { label: "Qué hacemos", href: "#que-hacemos" },
+      { label: "Inicio", href: "#inicio" },
       { label: "Beneficios", href: "#beneficios" },
-      { label: "Experiencia", href: "#experiencia" },
-      { label: "Preguntas frecuentes", href: "#preguntas" },
+      { label: "Proyectos", href: "#proyectos" },
+      { label: "Contacto", href: "#contacto" },
     ],
   },
   {
     name: "Contacto",
     links: [
-      { label: "Cómo empezar", href: "#como-empezar" },
-      { label: "Formulario de diagnóstico", href: "#contacto" },
-      { label: contact.phone, href: contact.phoneHref },
+      { label: "Cómo empezar", href: "#contacto" },
+      { label: "Formulario de diagnóstico", href: "#diagnostico" },
+      { label: "WhatsApp", href: contact.whatsappHref },
       { label: contact.email, href: `mailto:${contact.email}` },
     ],
   },
@@ -124,79 +114,54 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         {/* ===== Inicio: qué hacemos y qué problema resolvemos ===== */}
-        {/* Hero */}
-        <section id="inicio" className="relative isolate overflow-hidden bg-[image:var(--hero-wash)] pt-36 md:pt-44">
-          <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-7 px-4 text-center sm:px-6">
+        <section id="inicio" className="relative isolate overflow-hidden bg-[image:var(--hero-wash)] pt-24 pb-8 sm:pt-28 sm:pb-10 md:pt-32 md:pb-12 lg:pt-36 lg:pb-14">
+          <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-6 px-4 text-center sm:px-6 md:gap-7 lg:px-8 xl:px-10">
             <h1 className="max-w-4xl text-heading-sm font-normal sm:text-heading md:text-heading-lg lg:text-hero">
               Conectamos y potenciamos tu operación con tecnología.
             </h1>
             <p className="max-w-2xl text-body-lg text-foreground/75">
-              Desarrollamos CuadraPOS, CuadraERP y tecnología RFID, los integramos con SAP Business One, Microsoft 365
-              y tus sistemas actuales, y gestionamos la infraestructura que hace que todo funcione.
+              Cuando las ventas, el inventario y la administración viven en sistemas separados, tu equipo pierde
+              tiempo copiando datos y decide con información a destiempo.
             </p>
-            <div className="flex flex-col gap-2 sm:flex-row">
-              <CTAButton action="demo" location="hero" />
-              <CTAButton action="soluciones" location="hero" className="bg-background/90" />
-            </div>
           </div>
-          <div className="mx-auto mt-16 w-full max-w-[1200px] px-4 sm:px-6 md:mt-20">
+          <div className="mx-auto mt-6 w-full max-w-[1440px] px-4 sm:mt-8 sm:px-6 md:mt-10 lg:mt-12 lg:px-8 xl:px-10">
             <div className="hero-reveal relative aspect-[4/3] overflow-hidden rounded-lg bg-navy shadow-feature sm:aspect-[1983/793]">
               <Image
                 src="/img/ecosistema-bsp.png"
                 alt="Ecosistema BSP: punto de venta CuadraPOS, terminal de almacén, panel ERP, servidores en la nube e integraciones"
                 fill
                 priority
-                sizes="(min-width: 1200px) 1152px, 100vw"
+                sizes="(min-width: 1440px) 1360px, 100vw"
                 className="object-cover object-[62%_center] sm:object-center"
               />
             </div>
           </div>
-          <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-1/4 bg-background" />
-        </section>
-
-        {/* Qué hacemos */}
-        <section id="que-hacemos" className="mx-auto w-full max-w-[1200px] px-4 pt-24 sm:px-6 md:pt-28">
-          <div className="grid gap-5 xl:grid-cols-12 xl:gap-10">
-            <h2 className="text-heading-sm font-normal md:text-heading-lg xl:col-span-4">Qué hacemos</h2>
-            <div className="flex max-w-3xl flex-col gap-5 xl:col-span-8 xl:max-w-none xl:pt-2">
-              <p className="text-body-lg">
-                Cuando las ventas, el inventario y la administración viven en sistemas separados, tu equipo pierde
-                tiempo copiando datos y decide con información a destiempo.
-              </p>
-              <p className="text-body-lg text-muted-foreground">
-                Desarrollamos soluciones propias para la gestión de tu negocio: CuadraPOS para el punto de venta,
-                CuadraERP para la administración y tecnología RFID para el control de inventario y activos. Las
-                integramos con SAP Business One, Microsoft 365 y los sistemas que ya utilizas, y administramos la
-                infraestructura que las sostiene para que tu equipo se enfoque en operar, no en resolver problemas
-                técnicos.
-              </p>
-            </div>
-          </div>
-          <ul className="mt-12 grid gap-x-8 gap-y-8 md:grid-cols-3">
+          <ul className="mx-auto mt-6 grid w-full max-w-[1440px] gap-x-8 gap-y-6 px-4 sm:mt-8 sm:gap-y-8 sm:px-6 md:mt-10 md:grid-cols-3 lg:px-8 xl:px-10">
             {solutions.map((solution) => (
               <li key={solution.title} className="flex flex-col gap-2 border-t pt-5">
-                <h3 className="text-title font-normal">{solution.title}</h3>
+                <h2 className="text-title font-normal">{solution.title}</h2>
                 <p className="text-muted-foreground">{solution.text}</p>
               </li>
             ))}
           </ul>
+          <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-1/4 bg-background" />
         </section>
 
         {/* ===== Servicios: qué soluciones ofrecemos ===== */}
         {/* Pilares por color: índice de servicios */}
-        <section id="servicios" className="mx-auto w-full max-w-[1200px] px-4 py-24 sm:px-6 md:py-28">
-          <div className="flex max-w-3xl flex-col gap-5">
+        <section id="servicios" className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 sm:py-10 md:py-12 lg:px-8 lg:py-14 xl:px-10">
+          <div className="flex flex-col gap-5">
             <h2 className="text-heading-sm font-normal md:text-heading">Seis piezas, un mismo proveedor</h2>
             <p className="text-body-lg text-muted-foreground">
-              Productos propios, integración, facturación electrónica e infraestructura. Usa una pieza o combínalas, y
-              si tu operación necesita algo que no existe,{" "}
+              Elige el punto de entrada según lo que necesitas resolver hoy. Puedes empezar con una solución puntual,
+              conectar tus sistemas actuales o pedir{" "}
               <a href={customDevelopment.href} className="text-foreground underline hover:text-brand">
-                lo desarrollamos a la medida
+                desarrollo a la medida
               </a>
               .
             </p>
           </div>
-          <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 md:mt-8 lg:grid-cols-3">
             {services.map((pillar) => (
               <li key={pillar.name}>
                 <a
@@ -215,46 +180,17 @@ export default function Home() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <Products />
-
-        {/* Integraciones */}
-        <section id="integraciones" className="bg-navy text-navy-foreground">
-          <div className="mx-auto w-full max-w-[1200px] px-4 py-24 sm:px-6 md:py-32">
-            <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-              <div className="flex flex-col gap-5 lg:col-span-7">
-                <h2 className="text-heading-sm font-normal md:text-heading-lg">
-                  No reemplazamos lo que ya funciona, lo conectamos.
-                </h2>
-                <p className="text-body-lg text-navy-muted">
-                  Si ya trabajas con SAP Business One, Microsoft 365 o Zoho CRM, conectamos CuadraPOS, CuadraERP
-                  y el WMS a ellos mediante APIs, Webhooks y OData.
-                </p>
-              </div>
-              <ul className="flex flex-col gap-3 lg:col-span-5">
-                {integrationOutcomes.map((outcome) => (
-                  <li key={outcome} className="flex gap-3">
-                    <ArrowRightIcon className="mt-1 size-4 shrink-0 text-brand-light" aria-hidden />
-                    {outcome}
-                  </li>
-                ))}
-              </ul>
+          <div id="integraciones" className="mt-6 rounded-lg bg-navy p-6 text-navy-foreground sm:mt-8 sm:p-8 md:mt-10">
+            <div className="flex flex-col gap-4">
+              <h3 className="text-subheading font-normal">Integraciones</h3>
+              <p className="text-body-lg text-navy-muted">
+                Conectamos CuadraPOS, CuadraERP y el WMS con los sistemas que ya usas. Una venta, un despacho o un
+                asiento actualizan el resto del flujo sin capturar el dato otra vez.
+              </p>
             </div>
-
-            <div className="relative mt-14 aspect-[4/3] overflow-hidden rounded-lg sm:aspect-[1320/941]">
-              <Image
-                src="/img/integraciones.png"
-                alt="Mapa de integraciones de BSP con SAP Business One, Microsoft 365, Zoho CRM, CuadraERP, CuadraPOS, AWS y Azure"
-                fill
-                sizes="(min-width: 1200px) 1152px, 100vw"
-                className="object-cover object-[40%_center] sm:object-left"
-              />
-            </div>
-
-            <dl className="mt-14 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
-              {integrationGroups.map((group) => (
-                <div key={group.name} className="flex flex-col gap-3 border-t border-navy-border pt-4">
+            <dl className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-3">
+              {integrations.map((group) => (
+                <div key={group.name} className="flex flex-col gap-2 border-t border-navy-border pt-4">
                   <dt className="text-sm text-navy-muted">{group.name}</dt>
                   {group.items.map((item) => (
                     <dd key={item}>{item}</dd>
@@ -265,18 +201,20 @@ export default function Home() {
           </div>
         </section>
 
+        <Products />
+
         {/* Infraestructura */}
-        <section id="infraestructura" className="mx-auto w-full max-w-[1200px] px-4 py-24 sm:px-6 md:py-32">
-          <div className="flex max-w-3xl flex-col gap-5">
-            <h2 className="text-heading-sm font-normal md:text-heading-lg">
+        <section id="infraestructura" className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 sm:py-10 md:py-12 lg:px-8 lg:py-14 xl:px-10">
+          <div className="flex flex-col gap-5">
+            <h3 className="text-subheading font-normal">
               Infraestructura y nube, a cargo del mismo equipo
-            </h2>
+            </h3>
             <p className="text-body-lg text-muted-foreground">
-              El software que te entregamos corre sobre servidores que diseñamos, monitoreamos y respaldamos.
+              Diseñamos el entorno donde corre tu operación y nos encargamos de mantenerlo disponible.
             </p>
           </div>
-          <div className="mt-12 grid gap-3 lg:grid-cols-12">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-navy lg:col-span-7 lg:aspect-auto lg:min-h-[420px]">
+          <div className="mt-6 grid gap-3 sm:mt-8 md:mt-8 lg:grid-cols-12">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-navy lg:col-span-7 lg:aspect-auto lg:min-h-[340px]">
               <Image
                 src="/img/infraestructura.png"
                 alt="Ingeniero de BSP trabajando frente a racks de servidores en un centro de datos"
@@ -301,16 +239,16 @@ export default function Home() {
 
         {/* Desarrollo a la medida */}
         <section id="desarrollo" className="bg-wash">
-          <div className="mx-auto w-full max-w-[1200px] px-4 py-24 sm:px-6 md:py-32">
-            <div className="flex max-w-3xl flex-col gap-5">
-              <h2 className="text-heading-sm font-normal md:text-heading-lg">
+          <div className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 sm:py-10 md:py-12 lg:px-8 lg:py-14 xl:px-10">
+            <div className="flex flex-col gap-5">
+              <h3 className="text-subheading font-normal">
                 Desarrollo, integración y automatización a la medida
-              </h2>
+              </h3>
               <p className="text-body-lg text-muted-foreground">
-                Cuando un producto estándar no alcanza, construimos lo que tu operación necesita.
+                Cuando el flujo de trabajo tiene reglas propias, diseñamos la pieza que falta y la dejamos operando.
               </p>
             </div>
-            <div className="mt-12 grid gap-3 md:grid-cols-3">
+            <div className="mt-6 grid gap-3 sm:mt-8 md:mt-8 md:grid-cols-3">
               {serviceGroups.map((group) => (
                 <div key={group.name} className="flex flex-col gap-6 rounded-lg bg-background px-5 py-6 shadow-hairline">
                   <h3 className="text-title font-normal">{group.name}</h3>
@@ -329,12 +267,12 @@ export default function Home() {
         </section>
 
         {/* ===== Beneficios: por qué trabajar con BSP ===== */}
-        <section id="beneficios" className="mx-auto w-full max-w-[1200px] px-4 py-24 sm:px-6 md:py-32">
-          <div className="grid gap-12 lg:grid-cols-12">
+        <section id="beneficios" className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 sm:py-10 md:py-12 lg:px-8 lg:py-14 xl:px-10">
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-10">
             <div className="flex flex-col gap-5 lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
               <h2 className="text-heading-sm font-normal md:text-heading">Por qué trabajar con BSP</h2>
               <p className="text-body-lg text-muted-foreground">
-                Un proveedor que entrega el software, lo conecta con lo que ya usas y lo mantiene funcionando.
+                Menos coordinación entre proveedores y más continuidad para tu operación diaria.
               </p>
             </div>
             <ul className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:col-span-8">
@@ -348,63 +286,32 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== Experiencia: qué demuestra nuestra capacidad ===== */}
-        <section id="experiencia" className="bg-navy text-navy-foreground">
-          <div className="mx-auto w-full max-w-[1200px] px-4 py-24 sm:px-6 md:py-32">
-            <div className="flex max-w-3xl flex-col gap-5">
-              <h2 className="text-heading-sm font-normal md:text-heading-lg">
-                Software propio, construido y mantenido por nuestro equipo
+        {/* ===== Proyectos: qué demuestra nuestra capacidad ===== */}
+        <section id="proyectos" className="bg-navy text-navy-foreground">
+          <div className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 sm:py-10 md:py-12 lg:px-8 lg:py-14 xl:px-10">
+            <div className="flex flex-col gap-5">
+              <h2 className="text-heading-sm font-normal md:text-heading">
+                Proyectos
               </h2>
               <p className="text-body-lg text-navy-muted">
-                CuadraPOS, CuadraERP y el WMS con RFID son productos que diseñamos, desarrollamos y mantenemos para
-                el trabajo diario: conectados al hardware de la tienda, a las terminales del almacén y a la gestión de
-                la oficina.
+                Los casos de clientes se publicarán aquí.
               </p>
-            </div>
-            <div className="mt-14 grid gap-x-8 gap-y-12 md:grid-cols-3">
-              {operatingContext.map((context) => (
-                <div key={context.place} className="flex flex-col gap-5 border-t border-navy-border pt-5">
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-title font-normal">{context.place}</h3>
-                    <a
-                      href={context.href}
-                      className="group inline-flex w-fit items-center gap-2 text-navy-muted hover:text-navy-foreground focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
-                    >
-                      {context.product}
-                      <ArrowRightIcon
-                        className="size-4 text-brand-light transition-transform duration-300 ease-out group-hover:translate-x-1"
-                        aria-hidden
-                      />
-                    </a>
-                  </div>
-                  <ul className="flex flex-col gap-3">
-                    {context.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
             </div>
           </div>
         </section>
 
         {/* ===== Contacto: cómo empezar a trabajar con BSP ===== */}
         {/* Cómo empezar */}
-        <section id="como-empezar" className="mx-auto w-full max-w-[1200px] px-4 py-24 sm:px-6 md:py-32">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-            <div className="flex flex-col gap-5 lg:col-span-7">
-              <h2 className="text-heading-sm font-normal md:text-heading-lg">Cómo empezar</h2>
-              <p className="text-body-lg text-muted-foreground">
-                Tres pasos, con el mismo equipo de principio a fin.
-              </p>
-            </div>
-            <div className="lg:col-span-5 lg:justify-self-end">
-              <CTAButton action="demo" location="como-empezar" />
-            </div>
+        <section id="contacto" className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 sm:py-10 md:py-12 lg:px-8 lg:py-14 xl:px-10">
+          <div className="flex flex-col gap-5">
+            <h2 className="text-heading-sm font-normal md:text-heading">Cómo empezar</h2>
+            <p className="text-body-lg text-muted-foreground">
+              Una conversación inicial nos da el contexto para proponerte el camino más corto.
+            </p>
           </div>
-          <ol className="mt-14 grid gap-3 md:grid-cols-3">
+          <ol className="mt-6 grid gap-3 sm:mt-8 md:mt-8 md:grid-cols-3">
             {steps.map((step, index) => (
-              <li key={step.title} className="flex flex-col gap-10 rounded-lg bg-wash p-6 sm:p-8">
+              <li key={step.title} className="flex flex-col gap-6 rounded-lg bg-wash p-6 sm:p-8">
                 <span aria-hidden className="text-heading-lg font-normal text-brand">
                   {index + 1}
                 </span>
@@ -419,15 +326,12 @@ export default function Home() {
 
         {/* Preguntas frecuentes */}
         <section id="preguntas" className="bg-wash">
-          <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-4 py-24 sm:px-6 md:py-32 lg:grid-cols-12">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-6 px-4 py-8 sm:gap-6 sm:px-6 sm:py-10 md:py-12 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:py-14 xl:px-10">
             <div className="flex flex-col gap-5 lg:col-span-4">
-              <h2 className="text-heading-sm font-normal md:text-heading">Preguntas frecuentes</h2>
+              <h3 className="text-subheading font-normal">Preguntas frecuentes</h3>
               <p className="text-body-lg text-muted-foreground">
-                ¿No encuentras tu respuesta? Te contestamos por WhatsApp.
+                Si tu caso no aparece aquí, descríbelo en el formulario de diagnóstico.
               </p>
-              <div>
-                <CTAButton action="pregunta" location="preguntas" />
-              </div>
             </div>
             <Accordion className="rounded-lg bg-background px-5 shadow-hairline sm:px-8 lg:col-span-8">
               {faqs.map((faq) => (
@@ -443,21 +347,21 @@ export default function Home() {
         </section>
 
         {/* Contacto */}
-        <section id="contacto" className="bg-navy text-navy-foreground">
-          <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-4 py-24 sm:px-6 md:py-32 lg:grid-cols-12">
+        <section id="diagnostico" className="bg-navy text-navy-foreground">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-6 px-4 py-8 sm:gap-6 sm:px-6 sm:py-10 md:py-12 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:py-14 xl:px-10">
             <div className="flex flex-col gap-5 lg:col-span-5">
-              <h2 className="text-heading-sm font-normal md:text-heading">Pide tu diagnóstico gratuito</h2>
+              <h3 className="text-subheading font-normal">Pide tu diagnóstico gratuito</h3>
               <p className="text-body-lg text-navy-muted">
-                Cuéntanos cómo opera tu empresa. Revisamos tus procesos sin costo y te mostramos cómo se verían en
-                CuadraPOS, CuadraERP o el WMS, y qué haría falta integrar.
+                Describe el proceso, las herramientas actuales y el resultado que necesitas. Con eso preparamos el
+                siguiente paso.
               </p>
               <div className="mt-4 flex flex-col gap-4">
                 <dl className="flex flex-col gap-3 text-navy-muted">
                   <div className="flex gap-3">
-                    <PhoneIcon className="mt-1 size-4 shrink-0" aria-hidden />
-                    <dt className="sr-only">Teléfono</dt>
+                    <MessageCircleIcon className="mt-1 size-4 shrink-0" aria-hidden />
+                    <dt className="sr-only">WhatsApp</dt>
                     <dd>
-                      <a href={contact.phoneHref} className="text-navy-foreground hover:underline">
+                      <a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="text-navy-foreground hover:underline">
                         {contact.phone}
                       </a>
                     </dd>
@@ -482,15 +386,14 @@ export default function Home() {
       </main>
 
       <footer className="bg-navy-deep text-navy-foreground">
-        <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-10 px-4 pt-24 pb-16 text-center sm:px-6">
-          <p className="text-heading leading-[0.85] font-black tracking-[-0.03em] uppercase sm:text-hero md:text-display">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 pt-12 pb-10 text-center sm:px-6 sm:pt-14 sm:pb-12 md:pt-16 md:pb-14 lg:px-8 lg:pt-20 lg:pb-16 xl:px-10">
+          <p className="text-heading-sm leading-[0.9] font-black tracking-[-0.03em] uppercase sm:text-heading-lg md:text-hero lg:text-display">
             Conecta tu
             <br />
             <span className="text-[var(--brand-on-dark)]">operación</span>
           </p>
-          <CTAButton action="pregunta" location="footer" className="border-transparent text-foreground" />
         </div>
-        <div className="mx-auto grid w-full max-w-[1200px] gap-10 border-t border-navy-border px-4 py-14 sm:px-6 md:grid-cols-12">
+        <div className="mx-auto grid w-full max-w-[1440px] gap-8 border-t border-navy-border px-4 py-8 sm:px-6 sm:py-10 md:grid-cols-12 md:gap-10 md:py-12 lg:px-8 xl:px-10">
           <div className="md:col-span-4">
             <LogoLockup inverted className="h-28" />
           </div>
@@ -509,7 +412,7 @@ export default function Home() {
             </nav>
           ))}
         </div>
-        <div className="mx-auto w-full max-w-[1200px] border-t border-navy-border px-4 py-6 text-sm text-navy-muted sm:px-6">
+        <div className="mx-auto w-full max-w-[1440px] border-t border-navy-border px-4 py-5 text-sm text-navy-muted sm:px-6 lg:px-8 xl:px-10">
           © 2026 BSP Tech Solutions
         </div>
       </footer>

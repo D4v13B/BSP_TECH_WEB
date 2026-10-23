@@ -144,12 +144,11 @@ export function ContactForm() {
           />
           <FieldError>{errors.mensaje}</FieldError>
         </Field>
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="flex justify-end">
           <Button type="submit" size="xl" className="w-full sm:w-auto">
             <WhatsAppIcon data-icon="inline-start" />
             Enviar por WhatsApp
           </Button>
-          <p className="text-sm text-muted-foreground">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
         </div>
       </FieldGroup>
     </form>
